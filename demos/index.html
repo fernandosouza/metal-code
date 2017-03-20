@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Demo: Metal Input</title>
+	<!-- marble -->
+	<link rel="stylesheet" href="../node_modules/marble/build/fonts/galano/galano.css">
+	<link rel="stylesheet" href="../node_modules/marble/build/fonts/icon-12/icon-12.css">
+	<link rel="stylesheet" href="../node_modules/marble/build/fonts/icon-16/icon-16.css">
+
+	<link rel="stylesheet" href="../node_modules/marble/build/marble.css">
+
+	<!-- codemirror -->
+	<link rel="stylesheet" href="../node_modules/codemirror/lib/codemirror.css">
+	<link rel="stylesheet" href="../node_modules/codemirror/theme/dracula.css">
+	<script src="../node_modules/codemirror/lib/codemirror.js"></script>
+	<script src="../node_modules/codemirror/mode/soy/soy.js"></script>
+	<script src="../node_modules/codemirror/mode/jsx/jsx.js"></script>
+	<script src="../node_modules/codemirror/mode/javascript/javascript.js"></script>
+
+	<script src="../build/globals/code.js"></script>
+
+	<style type="text/css">
+		.hidden {
+			display: none;
+		}
+		.code {
+			visibility: hidden;
+		}
+	</style>
+
+</head>
+<body>
+	<div class="container-hybrid-half">
+
+		<div id="code-container" class="code-container">
+			<div id="example-code" class="hidden">
+
+<textarea class="code" data-title="JSX Example" data-mode="javascript">
+import JSXComponent from 'metal-jsx';
+
+class Modal extends JSXComponent {
+	render() {
+		return <div>Hello World</div>;
+	}
+}
+
+export default Modal;
+</textarea>
+
+<textarea class="code" data-title="Soy Example" data-mode="x-soy">
+{namespace Modal}
+
+/**
+ * This renders the component's whole content.
+ * Note: has to be called ".render".
+ */
+{template .render}
+	<div>Hello World</div>
+{/template}
+</textarea>
+
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		window.code1 = new metal.Code({
+			container: document.getElementById('code-container'),
+			theme: 'dracula'
+		}, "#code-container");
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+{namespace Code}
+
+/**
+ * @param? handleTabClick
+ * @param? tabs_
+ */
+{template .render}
+	{@param? content_ : html}
+
+	<div class="code-tabs">
+		{call .tabs data="all" /}
+		{call .content data="all" /}
+	</div>
+{/template}
+
+/**
+ * @param? handleTabClick
+ * @param? tabs_
+ */
+{template .tabs}
+	<div class="code-tabs-header">
+		{if $tabs_}
+			{foreach $tab in $tabs_}
+				{let $selected: index($tab) == 0 /}
+				<button class="code-tab{$selected ? ' selected' : ''}" data-index="{index($tab)}" type="button" data-onclick="{$handleTabClick}">
+					{$tab}
+				</button>
+			{/foreach}
+		{/if}
+	</div>
+{/template}
+
+/**
+ */
+{template .content}
+	{@param? content_ : html}
+
+	<div class="content">
+		{if $content_}
+			{$content_}
+		{/if}
+	</div>
+{/template}
